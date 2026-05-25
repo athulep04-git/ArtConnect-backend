@@ -5,5 +5,5 @@ const route=express.Router()
 
 route.post('/api/register',userController.register)
 route.post('/api/login',userController.login)
-route.get('/api/getProfile',jwtMiddleware,userController.getProfile)
+route.get('/api/getprofile',jwtMiddleware,userController.getProfile)
 module.exports=route
