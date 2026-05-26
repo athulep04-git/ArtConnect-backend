@@ -10,5 +10,6 @@ route.get('/api/getprofile',jwtMiddleware,userController.getProfile)
 route.post('/api/addartwork',artworkController.addArtwork)
 route.get('/api/getartworks',artworkController.getArtworks)
 route.get('/api/getsingleartwork/:id',artworkController.getSingleArtwork)
+route.put('/api/updateartwork/:id',artworkController.updateArtwork)
 
 module.exports=route

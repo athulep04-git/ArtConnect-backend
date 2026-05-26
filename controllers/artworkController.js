@@ -40,3 +40,17 @@ exports.getSingleArtwork=async (req,res)=>{
     res.status(500).json(err)
   }
 }
+
+//update artwork
+exports.updateArtwork=async(req,res)=>{
+const {id}=req.params
+const {title,description,category,image,startingPrice,isAvailable}=req.body
+
+try{
+    const updatedArtwork=await Artwork.findByIdAndUpdate(id,{title,description,category,image,startingPrice,isAvailable},{returnDocument:'after'})
+    res.status(200).json({message:"Artwork updated",updatedArtwork})
+}
+catch(err){
+    res.status(500).json(err)
+}
+}
