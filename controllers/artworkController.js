@@ -23,3 +23,20 @@ exports.getArtworks =async (req,res)=>{
     res.status(500).json(err)
   }
 }
+
+//get one artwork
+exports.getSingleArtwork=async (req,res)=>{
+    const {id}=req.params
+  try{
+    const singleArtwork =await Artwork.findById(id)
+    if(singleArtwork){
+        res.status(200).json(singleArtwork)
+    }
+    else{
+        res.status(404).json("Artwork not found")
+    }
+  }
+  catch(err){
+    res.status(500).json(err)
+  }
+}
