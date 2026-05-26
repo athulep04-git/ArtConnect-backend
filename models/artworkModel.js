@@ -17,8 +17,12 @@ const artworkSchema =new mongoose.Schema({
     type: String,
     required: true
   },
-  price: {
+  startingPrice: {
     type: Number
+  },
+  isAvailable: {
+    type: Boolean,
+    default: true
   },
   createdAt: {
     type: Date,
