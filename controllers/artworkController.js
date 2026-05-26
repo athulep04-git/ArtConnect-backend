@@ -2,6 +2,9 @@ const Artwork =require('../models/artworkModel')
 
 // Add artwork
 exports.addArtwork =async (req,res)=>{
+    if(req.role!='artist'){
+        return res.status(403).json("Access denied")
+    }
   const {title,description,category,image,startingPrice,isAvailable}=req.body
   try{
     const newArtwork =new Artwork({title,description,category,image,startingPrice,isAvailable})
@@ -43,6 +46,9 @@ exports.getSingleArtwork=async (req,res)=>{
 
 //update artwork
 exports.updateArtwork=async(req,res)=>{
+    if(req.role!='artist'){
+        return res.status(403).json("Access denied")
+    }
 const {id}=req.params
 const {title,description,category,image,startingPrice,isAvailable}=req.body
 
@@ -58,6 +64,9 @@ catch(err){
 
 //delete artwork
 exports.deleteArtwork=async(req,res)=>{
+    if(req.role!='artist'){
+        return res.status(403).json("Access denied")
+    }
 const {id}=req.params
 const {title,description,category,image,startingPrice,isAvailable}=req.body
 
