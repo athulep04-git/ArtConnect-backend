@@ -54,3 +54,18 @@ catch(err){
     res.status(500).json(err)
 }
 }
+
+
+//delete artwork
+exports.deleteArtwork=async(req,res)=>{
+const {id}=req.params
+const {title,description,category,image,startingPrice,isAvailable}=req.body
+
+try{
+    await Artwork.findByIdAndDelete(id)
+    res.status(200).json("Artwork deleted successfully")
+}
+catch(err){
+    res.status(500).json(err)
+}
+}
