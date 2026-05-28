@@ -20,7 +20,10 @@ const userSchema = new mongoose.Schema({
   profileImage: {
     type: String
   },
-
+  phone:{
+  type:String,
+  required: true
+  },
   role: {
     type: String,
     enum: ['user', 'artist'],
