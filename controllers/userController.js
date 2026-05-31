@@ -39,7 +39,8 @@ exports.login=async(req,res)=>{
     res.status(200).json({message:"Login successful", user:{
         _id: existingUser._id,
         username: existingUser.username,
-        email: existingUser.email
+        email: existingUser.email,
+        role:existingUser.role
       },token})
   }
 catch(err){
