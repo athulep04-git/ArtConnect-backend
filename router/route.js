@@ -12,5 +12,5 @@ route.get('/api/getartworks',artworkController.getArtworks)
 route.get('/api/getsingleartwork/:id',artworkController.getSingleArtwork)
 route.put('/api/updateartwork/:id',jwtMiddleware,artworkController.updateArtwork)
 route.delete('/api/deleteartwork/:id',jwtMiddleware,artworkController.deleteArtwork)
-
+route.get('/api/getallusers',userController.getAllUsers)
 module.exports=route
