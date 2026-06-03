@@ -7,6 +7,7 @@ const server=express()
 const route=require('./router/route')
 server.use(cors())
 server.use(express.json())
+server.use('/uploads',express.static('./uploads'))
 server.use(route)
 const PORT=process.env.PORT||3000
 
