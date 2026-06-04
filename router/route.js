@@ -1,6 +1,7 @@
 const express=require('express')
 const userController=require('../controllers/userController')
 const artworkController =require('../controllers/artworkController')
+const requestController =require('../controllers/requestController')
 const jwtMiddleware = require("../middleware/jwtMiddleware");
 const route=express.Router()
 const multerConfig =require('../middleware/multerMiddleware')
@@ -14,4 +15,6 @@ route.get('/api/getsingleartwork/:id',artworkController.getSingleArtwork)
 route.put('/api/updateartwork/:id',jwtMiddleware,multerConfig.single('image'),artworkController.updateArtwork)
 route.delete('/api/deleteartwork/:id',jwtMiddleware,artworkController.deleteArtwork)
 route.get('/api/getallusers',userController.getAllUsers)
+route.post('/api/sendreq',jwtMiddleware,multerConfig.single('referenceImage'),requestController.addRequest)
+
 module.exports=route

@@ -38,8 +38,8 @@ const requestSchema = new mongoose.Schema({
 
   status: {
     type: String,
-    enum: ["Pending", "Approved", "Rejected", "In Progress", "Completed"],
-    default: "Pending",
+    enum: ["pending", "approved", "rejected", "in progress", "completed"],
+    default: "pending",
   },
 
   price: {
@@ -49,8 +49,8 @@ const requestSchema = new mongoose.Schema({
 
   paymentStatus: {
     type: String,
-    enum: ["Pending", "Paid"],
-    default: "Pending",
+    enum: ["pending", "paid"],
+    default: "pending",
   },
 
   createdAt: {
