@@ -17,9 +17,18 @@ exports.addRequest = async (req, res) => {
       address,
     });
     await newRequest.save();
-    res.status(200).json({message: "Request sent successfully",newRequest,});
+    res.status(200).json({ message: "Request sent successfully", newRequest });
   } catch (err) {
     console.log(err);
+    res.status(500).json(err);
+  }
+};
+
+exports.getMyRequests = async (req, res) => {
+  try {
+    const requests = await Request.find({userId: req.payload,}).sort({createdAt: -1,});
+    res.status(200).json(requests);
+  } catch (err) {
     res.status(500).json(err);
   }
 };
