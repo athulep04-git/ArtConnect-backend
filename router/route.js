@@ -16,5 +16,5 @@ route.put('/api/updateartwork/:id',jwtMiddleware,multerConfig.single('image'),ar
 route.delete('/api/deleteartwork/:id',jwtMiddleware,artworkController.deleteArtwork)
 route.get('/api/getallusers',userController.getAllUsers)
 route.post('/api/sendreq',jwtMiddleware,multerConfig.single('referenceImage'),requestController.addRequest)
-
+route.get('/api/myrequests',jwtMiddleware,requestController.getMyRequests)
 module.exports=route
