@@ -18,4 +18,5 @@ route.get('/api/getallusers',userController.getAllUsers)
 route.post('/api/sendreq',jwtMiddleware,multerConfig.single('referenceImage'),requestController.addRequest)
 route.get('/api/myrequests',jwtMiddleware,requestController.getMyRequests)
 route.get('/api/allrequests',jwtMiddleware,requestController.getAllRequests)
+route.put('/api/updaterequest/:id',jwtMiddleware,requestController.updateRequest)
 module.exports=route

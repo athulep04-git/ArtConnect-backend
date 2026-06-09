@@ -40,8 +40,29 @@ exports.getAllRequests = async (req, res) => {
     return res.status(403).json("Access denied");
   }
   try {
-    const requests = await Request.find().populate("userId", "username email phone").sort({createdAt: -1,});
+    const requests = await Request.find()
+      .populate("userId", "username email phone")
+      .sort({ createdAt: -1 });
     res.status(200).json(requests);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+};
+
+exports.updateRequest = async (req, res) => {
+  if (req.role != "artist") {
+    return res.status(403).json("Access denied");
+  }
+  const { id } = req.params;
+  const { status, price, paymentStatus } = req.body;
+  try {
+    const updatedRequest = await Request.findByIdAndUpdate(id,
+      {
+        status,price,paymentStatus,
+      },
+      {new: true});
+    res.status(200).json(updatedRequest);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
