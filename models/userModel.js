@@ -28,7 +28,11 @@ const userSchema = new mongoose.Schema({
     type: String,
     enum: ['user', 'artist'],
     default: 'user'
-  }
+  },
+  isBlocked:{
+type:Boolean,
+default:false
+}
 })
 
 module.exports = mongoose.model('User', userSchema)
