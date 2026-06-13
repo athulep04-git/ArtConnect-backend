@@ -19,4 +19,5 @@ route.post('/api/sendreq',jwtMiddleware,multerConfig.single('referenceImage'),re
 route.get('/api/myrequests',jwtMiddleware,requestController.getMyRequests)
 route.get('/api/allrequests',jwtMiddleware,requestController.getAllRequests)
 route.put('/api/updaterequest/:id',jwtMiddleware,requestController.updateRequest)
+route.put('/api/blockuser/:id',jwtMiddleware,userController.blockUser)
 module.exports=route
